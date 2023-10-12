@@ -2,12 +2,32 @@ package br.com.mrb;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 @DisplayName("Test Math Operations in SimpleMath Class")
 public class SimpleMathTest {
+
+    SimpleMath math ;
+    @BeforeAll
+    static void setup(){
+        System.out.println("Running @BeforeAll Method");
+    }
+
+    @AfterAll
+    static void cleanup(){
+        System.out.println("Running @AfterAll Method");
+    }
+
+    @AfterEach
+    void afterEach(){
+        System.out.println("Running @AfterEach Method");
+    }
+
+    @BeforeEach
+    void beforeEach(){
+        System.out.println("Running @BeforeEach Method");
+        this.math= new SimpleMath();
+    }
 
     // test[System Under Test]_[Condition or State Change]_[Expected Result]
     @Test
@@ -15,13 +35,13 @@ public class SimpleMathTest {
     void testSum_When_SixDotTwoIsAddedByTwo_ShouldReturnEightDotTwo() {
         //AAA Arrange ACt Assert
         //GIVEN ARRANGE
-        SimpleMath math = new SimpleMath();
+
         double firstNumber = 6.2D;
         double secondNumber = 2D;
         double expected = 8.2D;
 
         //WHEN ACT
-        Double actual = math.sum(firstNumber, secondNumber);
+        Double actual = this.math.sum(firstNumber, secondNumber);
 
         //THEN ASSERT
         assertEquals(expected, actual,
@@ -32,11 +52,11 @@ public class SimpleMathTest {
     @Test
     @DisplayName("Test 6.2 - 2 = 4.2")
     void testSubtraction() {
-        SimpleMath math = new SimpleMath();
+
         double firstNumber = 6.2D;
         double secondNumber = 2D;
 
-        Double actual = math.subtraction(firstNumber, secondNumber);
+        Double actual = this.math.subtraction(firstNumber, secondNumber);
         double expected = 4.2D;
 
         assertEquals(expected, actual,
@@ -47,11 +67,11 @@ public class SimpleMathTest {
     @Test
     @DisplayName("Test 6.2 * 2 =12.4")
     void testMultiplication() {
-        SimpleMath math = new SimpleMath();
+
         double firstNumber = 6.2D;
         double secondNumber = 2D;
 
-        Double actual = math.multiplication(firstNumber, secondNumber);
+        Double actual = this.math.multiplication(firstNumber, secondNumber);
         double expected = 12.4D;
 
         assertEquals(expected, actual,
@@ -62,11 +82,11 @@ public class SimpleMathTest {
     @Test
     @DisplayName("Test 6.2 / 2 = 3.1")
     void testDivision() {
-        SimpleMath math = new SimpleMath();
+
         double firstNumber = 6.2D;
         double secondNumber = 2D;
 
-        Double actual = math.division(firstNumber, secondNumber);
+        Double actual = this.math.division(firstNumber, secondNumber);
         double expected = 3.1D;
 
         assertEquals(expected, actual,
@@ -84,11 +104,11 @@ public class SimpleMathTest {
     @Test
     @DisplayName("Test (6.2 + 2)/2 = 8.2")
     void testMean() {
-        SimpleMath math = new SimpleMath();
+
         double firstNumber = 6.2D;
         double secondNumber = 2D;
 
-        Double actual = math.mean(firstNumber, secondNumber);
+        Double actual = this.math.mean(firstNumber, secondNumber);
         double expected = 4.1D;
 
         assertEquals(expected, actual,
@@ -99,11 +119,11 @@ public class SimpleMathTest {
     @Test
     @DisplayName("Test  SquareRoot 81 = 9")
     void testSquareRoot() {
-        SimpleMath math = new SimpleMath();
+
         double number = 81D;
         double expected = 9D;
 
-        Double actual = math.squareRoot(number);
+        Double actual = this.math.squareRoot(number);
 
         assertEquals(expected, actual,
                 () -> "Square Root of " + number +
