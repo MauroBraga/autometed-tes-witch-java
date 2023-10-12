@@ -2,6 +2,7 @@ package br.com.mrb;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -74,10 +75,11 @@ public class SimpleMathTest {
     }
 
     // test[System Under Test]_[Condition or State Change]_[Expected Result]
-    /*@Test
+    @Test
+    @Disabled
     void testDivision_When_FirstNumberIsDividedByZero_ShouldThrowArithmeticException() {
         fail();
-    }*/
+    }
 
     @Test
     @DisplayName("Test (6.2 + 2)/2 = 8.2")
