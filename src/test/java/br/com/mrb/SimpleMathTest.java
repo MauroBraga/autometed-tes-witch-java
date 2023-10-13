@@ -96,9 +96,20 @@ public class SimpleMathTest {
 
     // test[System Under Test]_[Condition or State Change]_[Expected Result]
     @Test
-    @Disabled
+    @DisplayName("Test Division by zero")
     void testDivision_When_FirstNumberIsDividedByZero_ShouldThrowArithmeticException() {
-        fail();
+        //given
+        double firstNumber = 6.2D;
+        double secondNumber = 0;
+
+        var expectedMessage = "Impossible to divide by zero!";
+
+        //when e then
+        ArithmeticException actual = assertThrows(ArithmeticException.class, () ->{
+           this.math.division(firstNumber,secondNumber);
+        },() -> "Division by zero should throw an ArithmeticException");
+
+        assertEquals(expectedMessage,actual.getMessage(), () -> "Unexpected exception mensage");
     }
 
     @Test
