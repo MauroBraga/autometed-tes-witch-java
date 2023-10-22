@@ -1,5 +1,6 @@
-package br.com.mrb;
+package br.com.mrb.math;
 
+import br.com.mrb.SimpleMath;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;

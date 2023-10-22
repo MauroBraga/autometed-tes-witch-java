@@ -1,7 +1,8 @@
-package br.com.mrb;
+package br.com.mrb.math;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import br.com.mrb.SimpleMath;
 import org.junit.jupiter.api.*;
 
 @DisplayName("Test Math Operations in SimpleMath Class")

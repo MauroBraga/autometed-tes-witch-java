@@ -1,5 +1,6 @@
-package br.com.mrb;
+package br.com.mrb.math;
 
+import br.com.mrb.SimpleMath;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
