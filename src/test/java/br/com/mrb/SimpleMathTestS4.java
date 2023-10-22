@@ -3,6 +3,7 @@ package br.com.mrb;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
@@ -31,7 +32,12 @@ public class SimpleMathTestS4 {
     @ParameterizedTest
     @DisplayName("Test 6.2 / 2 = 3.1")
     //@MethodSource("testDivisionInputParameters")
-    @MethodSource()
+    //@MethodSource()
+    @CsvSource({
+            "6.2,2,3.1",
+            "71,14,5.07",
+            "18.3,3.1,5.90"
+    })
     void testDivision(double firstNumber, double secondNumber,double expected) {
         Double actual = this.math.division(firstNumber, secondNumber);
 
@@ -40,6 +46,7 @@ public class SimpleMathTestS4 {
                         " did not produce " + expected + "!");
     }
 
+    /*
     public static Stream<Arguments> testDivision(){
         return Stream.of(
                 Arguments.of(6.2D,2D,3.1D),
@@ -47,5 +54,5 @@ public class SimpleMathTestS4 {
                 Arguments.of(18.3D,3.1D,5.90D)
         );
     }
-
+*/
 }
