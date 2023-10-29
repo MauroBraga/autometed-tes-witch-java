@@ -1,4 +1,4 @@
-package br.com.mrb;
+package br.com.mrb.ordenacao;
 
 import org.junit.jupiter.api.*;
 
