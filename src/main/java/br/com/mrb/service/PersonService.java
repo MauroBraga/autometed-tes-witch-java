@@ -7,6 +7,6 @@ public class PersonService implements IPersonService {
 
     @Override
     public Person createPerson(Person p) {
-        return new Person();
+        return p;
     }
 }
