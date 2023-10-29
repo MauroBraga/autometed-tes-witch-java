@@ -10,10 +10,12 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PersonServiceTest {
 
     Person p ;
+    IPersonService service;
 
     @BeforeEach
     void setup(){
         p = new Person("Keith","Moon","kmoon@teste.com.br", "Wembley - UK", "Male");
+        service = new PersonService();
     }
 
     @DisplayName("WHen Create a Person with Scucces Should Return a Person Object")
@@ -21,7 +23,7 @@ public class PersonServiceTest {
     void testCreatePerson_WhenSucess_ShouldReturnPerson(){
 
         //Given / Arrange
-        IPersonService service = new PersonService();
+
 
         //When / Act
         var actual = service.createPerson(p);
@@ -35,7 +37,7 @@ public class PersonServiceTest {
     void testCreatePerson_WhenSucess_ShouldCotainsFirstNameInReturnedPersonObject(){
 
         //Given / Arrange
-        IPersonService service = new PersonService();
+
 
         //When / Act
         var actual = service.createPerson(p);
@@ -49,6 +51,30 @@ public class PersonServiceTest {
         assertEquals(p.getGender(),actual.getGender(),() ->"The gender is diferent");
         assertEquals(p.getAddress(),actual.getAddress(),() ->"The address is diferent");
 
+
+    }
+
+    @DisplayName("When Create a Person with null e-Mail Should throw Exception")
+    @Test
+    void testCreatePerson_WhithNullEMail_ShouldThrowIllegalArgumentException() {
+
+        //Given / Arrange
+        p.setEmail(null);
+
+        var expectedMessage = "The Person e-Mail is null or empty!";
+
+        //When / Act && Then / Assert
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> service.createPerson(p),
+                () -> "Empty e-mail should have cause an IllegalArgumentException");
+
+
+        // Then / Assert
+        assertEquals(
+                expectedMessage,
+                exception.getMessage(),
+                () -> "Exception error message is incorrect!");
 
     }
 
