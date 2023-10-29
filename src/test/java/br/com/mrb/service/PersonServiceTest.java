@@ -42,7 +42,13 @@ public class PersonServiceTest {
 
         //Then / Assert
         assertNotNull(actual,() -> "The createPerson() should not have returned null");
+        assertNotNull(p.getId(),() -> "The Person Id is missing");
         assertEquals(p.getFirstName(),actual.getFirstName(),() ->"The first name is diferent");
+        assertEquals(p.getLastName(),actual.getLastName(),() ->"The last name is diferent");
+        assertEquals(p.getEmail(),actual.getEmail(),() ->"The e-mail is diferent");
+        assertEquals(p.getGender(),actual.getGender(),() ->"The gender is diferent");
+        assertEquals(p.getAddress(),actual.getAddress(),() ->"The address is diferent");
+
 
     }
 
