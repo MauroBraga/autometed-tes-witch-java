@@ -1,8 +1,7 @@
 package br.com.mrb.service;
 
 import br.com.mrb.model.Person;
-import br.com.mrb.service.IPersonService;
-import br.com.mrb.service.PersonService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,6 +9,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PersonServiceTest {
 
+    Person p ;
+
+    @BeforeEach
+    void setup(){
+        p = new Person("Keith","Moon","kmoon@teste.com.br", "Wembley - UK", "Male");
+    }
 
     @DisplayName("WHen Create a Person with Scucces Should Return a Person Object")
     @Test
@@ -17,7 +22,6 @@ public class PersonServiceTest {
 
         //Given / Arrange
         IPersonService service = new PersonService();
-        var p = new Person("Keith","Moon","kmoon@teste.com.br", "Wembley - UK", "Male");
 
         //When / Act
         var actual = service.createPerson(p);
@@ -32,7 +36,6 @@ public class PersonServiceTest {
 
         //Given / Arrange
         IPersonService service = new PersonService();
-        var p = new Person("Keith","Moon","kmoon@teste.com.br", "Wembley - UK", "Male");
 
         //When / Act
         var actual = service.createPerson(p);
