@@ -32,4 +32,20 @@ public class OrderServiceTest {
 
         //Then / Assert
     }
+
+    @DisplayName("Should include current time when create a new Order")
+    @Test
+    void testShouldIncludeCurrentTime_When_CreateANewOrder() {
+        //Given / Arrange
+        try(MockedStatic<LocalDateTime> mockedStatic = mockStatic(LocalDateTime.class)) {
+            mockedStatic.when(LocalDateTime::now).thenReturn(defaultLocalDateTime);
+            //When / Act
+            Order result = service.createOrder("MacBook Pro", 2L, null);
+
+            // Then / Assert
+            assertEquals(defaultLocalDateTime, result.getCreationDate());
+        }
+
+        //Then / Assert
+    }
 }
